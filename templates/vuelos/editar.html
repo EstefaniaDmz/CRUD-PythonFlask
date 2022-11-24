@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+<br>
+<h1 style="text-align: center;">Formulario para editar</h1>
+<br>
+{% for v in vuelo %}
+<form action="/updateVuelo" method="post" class="form-label" style="margin-left: 5%; margin-right: 5%;">
+    <input type="hidden" name="idVuelo" value="{{ v[0] }}">
+    <h5>Fecha</h5>
+    <input class="form-control" type="text" name="fecha" value="{{ v[8] }}">
+    <br>
+    <h5>Hora</h5>
+    <input class="form-control" type="text" name="hora" value="{{ v[9] }}">
+    <br>
+    <h5>Ciudad origen</h5>
+    <input class="form-control" type="text" name="ciudadOrigen" value="{{ v[1] }}">
+    <br>
+    <h5>Estado origen</h5>
+    <input class="form-control" type="text" name="estadoOrigen" value="{{ v[2] }}">
+    <br>
+    <h5>País origen</h5>
+    <input class="form-control" type="text" name="paisOrigen" value="{{ v[3] }}">
+    <br>
+    <h5>Ciudad destino</h5>
+    <input class="form-control" type="text" name="ciudadDestino" value="{{ v[4] }}">
+    <br>
+    <h5>Estado destino</h5>
+    <input class="form-control" type="text" name="estadoDestino" value="{{ v[5] }}">
+    <br>
+    <h5>País destino</h5>
+    <input class="form-control" type="text" name="paisDestino" value="{{ v[6] }}">
+    <br>
+    <h5>Número plazas</h5>
+    <input class="form-control" type="number" name="plazasTotales" min="0" value="{{ v[7] }}">
+    <br>
+    <div class="d-grid gap-2">
+        <input class="btn btn-outline-primary" type="submit" value="Aceptar">
+    </div>
+</form>
+{% endfor %}
+{% include 'footer.html' %}

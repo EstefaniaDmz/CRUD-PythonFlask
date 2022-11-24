@@ -1,0 +1,43 @@
+{% include 'header.html' %}
+<br>
+<h1 style="text-align: center;">Vuelo   <a class="btn btn-outline-success btn-sm" href="/crearVuelo">Agregar</a></h1>
+    <div class="table-responsive" style="margin: 3%;">
+      <table class="table table-striped table-bordered" style="vertical-align: middle; text-align: center;">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Num. Plazas</th>
+            <th scope="col">Ciudad Origen</th>
+            <th scope="col">Estado Origen</th>
+            <th scope="col">País Origen</th>
+            <th scope="col">Ciudad Destino</th>
+            <th scope="col">Estado Destino</th>
+            <th scope="col">País Destino</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for vuelo in vuelos %}
+          <tr class="">
+            <td>{{ vuelo[0] }}</td>
+            <td>{{ vuelo[8] }}</td>
+            <td>{{ vuelo[9] }}</td>
+            <td>{{ vuelo[7] }}</td>
+            <td>{{ vuelo[1] }}</td>
+            <td>{{ vuelo[2] }}</td>
+            <td>{{ vuelo[3] }}</td>
+            <td>{{ vuelo[4] }}</td>
+            <td>{{ vuelo[5] }}</td>
+            <td>{{ vuelo[6] }}</td>
+            <td>
+              <a class="btn btn-outline-warning btn-sm" href="/editVuelo/{{ vuelo[0] }}">Editar</a>
+              <a class="btn btn-outline-danger btn-sm" href="/destroyVuelo/{{ vuelo[0] }}">Borrar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include 'footer.html' %}

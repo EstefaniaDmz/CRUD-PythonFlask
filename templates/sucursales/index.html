@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+<br>
+<h1 style="text-align: center;">Sucursal   <a class="btn btn-outline-success btn-sm" href="/crearSucursal">Agregar</a></h1>
+    <div class="table-responsive" style="margin: 3%;">
+      <table class="table table-striped table-bordered" style="vertical-align: middle; text-align: center;">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Num. Plazas</th>
+            <th scope="col">Calle</th>
+            <th scope="col">Colonia</th>
+            <th scope="col">CP</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sucursal in sucursales %}
+          <tr class="">
+            <td>{{ sucursal[0] }}</td>
+            <td>{{ sucursal[1] }}</td>
+            <td>{{ sucursal[2] }}</td>
+            <td>{{ sucursal[6] }}</td>
+            <td>{{ sucursal[3] }}</td>
+            <td>{{ sucursal[4] }}</td>
+            <td>{{ sucursal[5] }}</td>
+            <td>
+              <a class="btn btn-outline-warning btn-sm" href="/editSucursal/{{ sucursal[0] }}">Editar</a>
+              <a class="btn btn-outline-danger btn-sm" href="/destroySucursal/{{ sucursal[0] }}">Borrar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include 'footer.html' %}

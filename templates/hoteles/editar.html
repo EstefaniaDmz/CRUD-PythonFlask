@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+<br>
+<h1 style="text-align: center;">Formulario para editar</h1>
+<br>
+{% for h in hotel %}
+<form action="/updateHotel" method="post" class="form-label" style="margin-left: 5%; margin-right: 5%;">
+    <input type="hidden" name="idHotel" value="{{ h[0] }}">
+    <h5>Nombre</h5>
+    <input class="form-control" type="text" name="nombre" value="{{ h[2] }}">
+    <br>
+    <h5>Teléfono</h5>
+    <input class="form-control" type="number" name="telefono" min="1" maxlength="10" value="{{ h[1] }}">
+    <br>
+    <h5>Calle</h5>
+    <input class="form-control" type="text" name="calle" value="{{ h[3] }}">
+    <br>
+    <h5>Colonia</h5>
+    <input class="form-control" type="text" name="colonia" value="{{ h[4] }}">
+    <br>
+    <h5>CP</h5>
+    <input class="form-control" type="text" name="cp" maxlength="5" value="{{ h[5] }}">
+    <br>
+    <h5>Ciudad</h5>
+    <input class="form-control" type="text" name="ciudad" value="{{ h[6] }}">
+    <br>
+    <h5>Estado</h5>
+    <input class="form-control" type="text" name="estado" value="{{ h[7] }}">
+    <br>
+    <h5>País</h5>
+    <input class="form-control" type="text" name="pais" value="{{ h[8] }}">
+    <br>
+    <h5>Número plazas</h5>
+    <input class="form-control" type="number" name="numeroPlazas" min="0" value="{{ h[9] }}">
+    <br>
+    <div class="d-grid gap-2">
+        <input class="btn btn-outline-primary" type="submit" value="Aceptar">
+    </div>
+</form>
+{% endfor %}
+{% include 'footer.html' %}

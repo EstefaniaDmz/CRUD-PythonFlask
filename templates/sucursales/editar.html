@@ -1,0 +1,31 @@
+{% include 'header.html' %}
+<br>
+<h1 style="text-align: center;">Formulario para editar</h1>
+<br>
+{% for s in sucursal %}
+<form action="/updateSucursal" method="post" class="form-label" style="margin-left: 5%; margin-right: 5%;">
+    <input type="hidden" name="idSucursal" value="{{ s[0] }}">
+    <h5>Nombre</h5>
+    <input class="form-control" type="text" name="nombre" value="{{ s[1] }}">
+    <br>
+    <h5>Teléfono</h5>
+    <input class="form-control" type="number" name="telefono" min="1" maxlength="10" value="{{ s[2] }}">
+    <br>
+    <h5>Calle</h5>
+    <input class="form-control" type="text" name="calle" value="{{ s[3] }}">
+    <br>
+    <h5>Colonia</h5>
+    <input class="form-control" type="text" name="colonia" value="{{ s[4] }}">
+    <br>
+    <h5>CP</h5>
+    <input class="form-control" type="text" name="cp" maxlength="5" value="{{ s[5] }}">
+    <br>
+    <h5>Número plazas</h5>
+    <input class="form-control" type="number" name="numeroPlazas" min="0" value="{{ s[6] }}">
+    <br>
+    <div class="d-grid gap-2">
+        <input class="btn btn-outline-primary" type="submit" value="Aceptar">
+    </div>
+</form>
+{% endfor %}
+{% include 'footer.html' %}
